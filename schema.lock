@@ -1,0 +1,337 @@
+[
+  {
+    "schema": "public",
+    "table": "versions",
+    "constraints": [
+      {
+        "constraint_catalog": "plt-repro",
+        "constraint_schema": "public",
+        "constraint_name": "versions_pkey",
+        "table_catalog": "plt-repro",
+        "table_schema": "public",
+        "table_name": "versions",
+        "constraint_type": "PRIMARY KEY",
+        "is_deferrable": "NO",
+        "initially_deferred": "NO",
+        "enforced": "YES",
+        "nulls_distinct": null,
+        "column_name": "version",
+        "ordinal_position": 1,
+        "position_in_unique_constraint": null,
+        "foreign_table_name": "versions",
+        "foreign_column_name": "version",
+        "foreign_table_schema": "public"
+      }
+    ],
+    "columns": [
+      {
+        "column_name": "version",
+        "udt_name": "int8",
+        "is_nullable": "NO",
+        "is_generated": "NEVER",
+        "data_type": "bigint",
+        "isArray": false
+      },
+      {
+        "column_name": "name",
+        "udt_name": "text",
+        "is_nullable": "YES",
+        "is_generated": "NEVER",
+        "data_type": "text",
+        "isArray": false
+      },
+      {
+        "column_name": "md5",
+        "udt_name": "text",
+        "is_nullable": "YES",
+        "is_generated": "NEVER",
+        "data_type": "text",
+        "isArray": false
+      },
+      {
+        "column_name": "run_at",
+        "udt_name": "timestamptz",
+        "is_nullable": "YES",
+        "is_generated": "NEVER",
+        "data_type": "timestamp with time zone",
+        "isArray": false
+      }
+    ]
+  },
+  {
+    "schema": "public",
+    "table": "users",
+    "constraints": [
+      {
+        "constraint_catalog": "plt-repro",
+        "constraint_schema": "public",
+        "constraint_name": "users_pkey",
+        "table_catalog": "plt-repro",
+        "table_schema": "public",
+        "table_name": "users",
+        "constraint_type": "PRIMARY KEY",
+        "is_deferrable": "NO",
+        "initially_deferred": "NO",
+        "enforced": "YES",
+        "nulls_distinct": null,
+        "column_name": "id",
+        "ordinal_position": 1,
+        "position_in_unique_constraint": null,
+        "foreign_table_name": "users",
+        "foreign_column_name": "id",
+        "foreign_table_schema": "public"
+      }
+    ],
+    "columns": [
+      {
+        "column_name": "id",
+        "udt_name": "int4",
+        "is_nullable": "NO",
+        "is_generated": "NEVER",
+        "data_type": "integer",
+        "isArray": false
+      },
+      {
+        "column_name": "username",
+        "udt_name": "text",
+        "is_nullable": "NO",
+        "is_generated": "NEVER",
+        "data_type": "text",
+        "isArray": false
+      }
+    ]
+  },
+  {
+    "schema": "public",
+    "table": "reviews",
+    "constraints": [
+      {
+        "constraint_catalog": "plt-repro",
+        "constraint_schema": "public",
+        "constraint_name": "reviews_pkey",
+        "table_catalog": "plt-repro",
+        "table_schema": "public",
+        "table_name": "reviews",
+        "constraint_type": "PRIMARY KEY",
+        "is_deferrable": "NO",
+        "initially_deferred": "NO",
+        "enforced": "YES",
+        "nulls_distinct": null,
+        "column_name": "id",
+        "ordinal_position": 1,
+        "position_in_unique_constraint": null,
+        "foreign_table_name": "reviews",
+        "foreign_column_name": "id",
+        "foreign_table_schema": "public"
+      },
+      {
+        "constraint_catalog": "plt-repro",
+        "constraint_schema": "public",
+        "constraint_name": "fk_reviews_user_id",
+        "table_catalog": "plt-repro",
+        "table_schema": "public",
+        "table_name": "reviews",
+        "constraint_type": "FOREIGN KEY",
+        "is_deferrable": "NO",
+        "initially_deferred": "NO",
+        "enforced": "YES",
+        "nulls_distinct": null,
+        "column_name": "user_id",
+        "ordinal_position": 1,
+        "position_in_unique_constraint": 1,
+        "foreign_table_name": "users",
+        "foreign_column_name": "id",
+        "foreign_table_schema": "public",
+        "loweredTableWithSchemaName": "reviews",
+        "foreignEntityName": "user",
+        "entityName": "review"
+      },
+      {
+        "constraint_catalog": "plt-repro",
+        "constraint_schema": "public",
+        "constraint_name": "fk_reviews_movie_id",
+        "table_catalog": "plt-repro",
+        "table_schema": "public",
+        "table_name": "reviews",
+        "constraint_type": "FOREIGN KEY",
+        "is_deferrable": "NO",
+        "initially_deferred": "NO",
+        "enforced": "YES",
+        "nulls_distinct": null,
+        "column_name": "movie_id",
+        "ordinal_position": 1,
+        "position_in_unique_constraint": 1,
+        "foreign_table_name": "movies",
+        "foreign_column_name": "id",
+        "foreign_table_schema": "public",
+        "loweredTableWithSchemaName": "reviews",
+        "foreignEntityName": "movie",
+        "entityName": "review"
+      }
+    ],
+    "columns": [
+      {
+        "column_name": "id",
+        "udt_name": "int4",
+        "is_nullable": "NO",
+        "is_generated": "NEVER",
+        "data_type": "integer",
+        "isArray": false
+      },
+      {
+        "column_name": "user_id",
+        "udt_name": "int4",
+        "is_nullable": "NO",
+        "is_generated": "NEVER",
+        "data_type": "integer",
+        "isArray": false
+      },
+      {
+        "column_name": "movie_id",
+        "udt_name": "int4",
+        "is_nullable": "NO",
+        "is_generated": "NEVER",
+        "data_type": "integer",
+        "isArray": false
+      }
+    ]
+  },
+  {
+    "schema": "public",
+    "table": "movies",
+    "constraints": [
+      {
+        "constraint_catalog": "plt-repro",
+        "constraint_schema": "public",
+        "constraint_name": "movies_pkey",
+        "table_catalog": "plt-repro",
+        "table_schema": "public",
+        "table_name": "movies",
+        "constraint_type": "PRIMARY KEY",
+        "is_deferrable": "NO",
+        "initially_deferred": "NO",
+        "enforced": "YES",
+        "nulls_distinct": null,
+        "column_name": "id",
+        "ordinal_position": 1,
+        "position_in_unique_constraint": null,
+        "foreign_table_name": "movies",
+        "foreign_column_name": "id",
+        "foreign_table_schema": "public"
+      }
+    ],
+    "columns": [
+      {
+        "column_name": "id",
+        "udt_name": "int4",
+        "is_nullable": "NO",
+        "is_generated": "NEVER",
+        "data_type": "integer",
+        "isArray": false
+      },
+      {
+        "column_name": "title",
+        "udt_name": "text",
+        "is_nullable": "NO",
+        "is_generated": "NEVER",
+        "data_type": "text",
+        "isArray": false
+      }
+    ]
+  },
+  {
+    "schema": "public",
+    "table": "comments",
+    "constraints": [
+      {
+        "constraint_catalog": "plt-repro",
+        "constraint_schema": "public",
+        "constraint_name": "comments_pkey",
+        "table_catalog": "plt-repro",
+        "table_schema": "public",
+        "table_name": "comments",
+        "constraint_type": "PRIMARY KEY",
+        "is_deferrable": "NO",
+        "initially_deferred": "NO",
+        "enforced": "YES",
+        "nulls_distinct": null,
+        "column_name": "id",
+        "ordinal_position": 1,
+        "position_in_unique_constraint": null,
+        "foreign_table_name": "comments",
+        "foreign_column_name": "id",
+        "foreign_table_schema": "public"
+      },
+      {
+        "constraint_catalog": "plt-repro",
+        "constraint_schema": "public",
+        "constraint_name": "fk_comments_user_id",
+        "table_catalog": "plt-repro",
+        "table_schema": "public",
+        "table_name": "comments",
+        "constraint_type": "FOREIGN KEY",
+        "is_deferrable": "NO",
+        "initially_deferred": "NO",
+        "enforced": "YES",
+        "nulls_distinct": null,
+        "column_name": "user_id",
+        "ordinal_position": 1,
+        "position_in_unique_constraint": 1,
+        "foreign_table_name": "users",
+        "foreign_column_name": "id",
+        "foreign_table_schema": "public",
+        "loweredTableWithSchemaName": "comments",
+        "foreignEntityName": "user",
+        "entityName": "comment"
+      },
+      {
+        "constraint_catalog": "plt-repro",
+        "constraint_schema": "public",
+        "constraint_name": "fk_comments_movie_id",
+        "table_catalog": "plt-repro",
+        "table_schema": "public",
+        "table_name": "comments",
+        "constraint_type": "FOREIGN KEY",
+        "is_deferrable": "NO",
+        "initially_deferred": "NO",
+        "enforced": "YES",
+        "nulls_distinct": null,
+        "column_name": "movie_id",
+        "ordinal_position": 1,
+        "position_in_unique_constraint": 1,
+        "foreign_table_name": "movies",
+        "foreign_column_name": "id",
+        "foreign_table_schema": "public",
+        "loweredTableWithSchemaName": "comments",
+        "foreignEntityName": "movie",
+        "entityName": "comment"
+      }
+    ],
+    "columns": [
+      {
+        "column_name": "id",
+        "udt_name": "int4",
+        "is_nullable": "NO",
+        "is_generated": "NEVER",
+        "data_type": "integer",
+        "isArray": false
+      },
+      {
+        "column_name": "user_id",
+        "udt_name": "int4",
+        "is_nullable": "NO",
+        "is_generated": "NEVER",
+        "data_type": "integer",
+        "isArray": false
+      },
+      {
+        "column_name": "movie_id",
+        "udt_name": "int4",
+        "is_nullable": "NO",
+        "is_generated": "NEVER",
+        "data_type": "integer",
+        "isArray": false
+      }
+    ]
+  }
+]
